@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppContainerViewController: UIViewController, PhotoListCollectionViewControllerDelegate {
+class AppContainerViewController: UIViewController, PhotoListCollectionViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +37,45 @@ class AppContainerViewController: UIViewController, PhotoListCollectionViewContr
         
     }
     
-    @IBAction func cameraButtonPressed() {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        guard let photoFiltersVC = self.storyboard?.instantiateViewController(withIdentifier: "PhotoFiltersViewController") as? PhotoFiltersViewController
-            else {
-            fatalError("PhotoFiltersViewController is not found")
-            }
+        let originalImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        showPhotoFiltersViewController(for: originalImage)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    private func showPhotoFiltersViewController(for image: UIImage) {
         
+        guard let photoFiltersVC = self.storyboard?.instantiateViewController(withIdentifier: "PhotoFiltersViewController") as? PhotoFiltersViewController else {
+            fatalError("PhotoFiltersViewController not found")
+        }
+        photoFiltersVC.image = image
         self.addChildController(photoFiltersVC)
         
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cameraButtonPressed() {
+        
+//        guard let photoFiltersVC = self.storyboard?.instantiateViewController(withIdentifier: "PhotoFiltersViewController") as? PhotoFiltersViewController
+//            else {
+//            fatalError("PhotoFiltersViewController is not found")
+//            }
+//
+//        self.addChildController(photoFiltersVC)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            
+            let imagePickerVC = UIImagePickerController()
+            imagePickerVC.sourceType = .camera
+            imagePickerVC.delegate = self
+            self.present(imagePickerVC, animated: true, completion: nil)
+        }
+//
     }
     
     
