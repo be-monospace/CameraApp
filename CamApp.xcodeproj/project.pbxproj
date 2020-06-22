@@ -72,7 +72,7 @@
 		AE5D815F249D28B4006096DA /* CamApp */ = {
 			isa = PBXGroup;
 			children = (
-				AEAD833C24A01C6E00489C1F /* New Group */,
+				AEAD833C24A01C6E00489C1F /* Images */,
 				AEAD833724A00DDA00489C1F /* Controls */,
 				AEAD833424A00DD100489C1F /* Services */,
 				AE5D817D249D3A65006096DA /* Cells */,
@@ -131,12 +131,12 @@
 			path = Controls;
 			sourceTree = "<group>";
 		};
-		AEAD833C24A01C6E00489C1F /* New Group */ = {
+		AEAD833C24A01C6E00489C1F /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				AEAD833D24A01C8000489C1F /* placeholder.png */,
 			);
-			path = "New Group";
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

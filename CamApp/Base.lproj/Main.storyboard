@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0QK-Cx-oG8">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="Lvx-J5-11D" customClass="AppContainerViewController" customModule="CamApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tgi-kZ-f9w">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-xH-EUC">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <segue destination="tl7-7a-Gds" kind="embed" id="t8E-0J-6ba"/>
                                 </connections>
@@ -49,9 +49,9 @@
         <!--Photo List Collection View Controller-->
         <scene sceneID="pgG-29-7AB">
             <objects>
-                <collectionViewController id="tl7-7a-Gds" customClass="PhotoListCollectionViewController" customModule="CamApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PhotoListCollectionViewController" id="tl7-7a-Gds" customClass="PhotoListCollectionViewController" customModule="CamApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="meO-0J-VE3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.29411764709999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z5O-db-Dze">
@@ -102,7 +102,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0QK-Cx-oG8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vw0-bh-TLJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -119,11 +119,11 @@
             <objects>
                 <viewController storyboardIdentifier="PhotoPreviewViewController" id="7zR-wy-shK" customClass="PhotoPreviewViewController" customModule="CamApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RP3-JL-fiJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FVa-zn-vWa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,27 +148,35 @@
             <objects>
                 <viewController storyboardIdentifier="PhotoFiltersViewController" id="82t-qz-gpF" customClass="PhotoFiltersViewController" customModule="CamApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k4b-QS-Ksh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQH-Yi-Pg6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Cancel" id="GeF-qm-MQO"/>
+                                    <barButtonItem title="Cancel" id="GeF-qm-MQO">
+                                        <connections>
+                                            <action selector="cancelButtonPressed" destination="82t-qz-gpF" id="k0b-ze-RLZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fIb-gN-vf7"/>
-                                    <barButtonItem title="Done" id="5Jy-GL-OTh"/>
+                                    <barButtonItem title="Done" id="5Jy-GL-OTh">
+                                        <connections>
+                                            <action selector="doneButtonPressed" destination="82t-qz-gpF" id="ZMr-yS-LHE"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Sb-2E-XyS">
-                                <rect key="frame" x="0.0" y="88" width="414" height="627"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="500.5"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq1-aU-XWs" customClass="FiltersScrollView" customModule="CamApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="736.5" width="414" height="125.5"/>
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6Sb-2E-XyS" firstAttribute="height" secondItem="k4b-QS-Ksh" secondAttribute="height" multiplier="0.7" id="8u7-gw-a9r"/>
+                            <constraint firstItem="6Sb-2E-XyS" firstAttribute="height" secondItem="k4b-QS-Ksh" secondAttribute="height" multiplier="0.75" id="8u7-gw-a9r"/>
                             <constraint firstItem="XQH-Yi-Pg6" firstAttribute="trailing" secondItem="lz4-8L-qcN" secondAttribute="trailing" id="QQh-mJ-OCH"/>
                             <constraint firstItem="6Sb-2E-XyS" firstAttribute="width" secondItem="k4b-QS-Ksh" secondAttribute="width" id="Rkq-fc-T5w"/>
                             <constraint firstItem="Zq1-aU-XWs" firstAttribute="leading" secondItem="lz4-8L-qcN" secondAttribute="leading" id="Sm9-qy-O3p"/>
@@ -178,7 +186,7 @@
                             <constraint firstItem="XQH-Yi-Pg6" firstAttribute="top" secondItem="lz4-8L-qcN" secondAttribute="top" id="Z9O-JD-XTr"/>
                             <constraint firstItem="Zq1-aU-XWs" firstAttribute="width" secondItem="k4b-QS-Ksh" secondAttribute="width" id="ggI-4k-FKR"/>
                             <constraint firstItem="Zq1-aU-XWs" firstAttribute="bottom" secondItem="lz4-8L-qcN" secondAttribute="bottom" id="my2-ui-1L6"/>
-                            <constraint firstItem="Zq1-aU-XWs" firstAttribute="height" secondItem="k4b-QS-Ksh" secondAttribute="height" multiplier="0.14" id="pA4-6D-sSP"/>
+                            <constraint firstItem="Zq1-aU-XWs" firstAttribute="height" secondItem="k4b-QS-Ksh" secondAttribute="height" multiplier="0.15" id="pA4-6D-sSP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lz4-8L-qcN"/>
                     </view>

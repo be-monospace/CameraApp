@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppContainerViewController: UIViewController, PhotoListCollectionViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class AppContainerViewController: UIViewController, PhotoListCollectionViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PhotoFilterViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,29 @@ class AppContainerViewController: UIViewController, PhotoListCollectionViewContr
         }
         
         photoListCVC.delegate = self
+    }
+    
+    func photoFilterCancel() {
+        showPhotosList()
+    }
+    
+    func photoFilterDone() {
+        showPhotosList()
+    }
+    
+    private func showPhotosList() {
+        
+        self.view.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        guard let photoListCVC = self.storyboard?.instantiateViewController(withIdentifier: "PhotoListCollectionViewController") as? PhotoListCollectionViewController else {
+            fatalError("PhotoListCollectionViewController does not exist")
+        }
+        
+        photoListCVC.delegate = self
+        self.addChildController(photoListCVC)
+        
     }
     
     func photoListDidSelectImage(selectedImage: UIImage) {
@@ -50,6 +73,7 @@ class AppContainerViewController: UIViewController, PhotoListCollectionViewContr
             fatalError("PhotoFiltersViewController not found")
         }
         photoFiltersVC.image = image
+        photoFiltersVC.delegate = self
         self.addChildController(photoFiltersVC)
         
         
