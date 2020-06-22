@@ -150,13 +150,46 @@
                     <view key="view" contentMode="scaleToFill" id="k4b-QS-Ksh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.30196078430000001" green="0.6588235294" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQH-Yi-Pg6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="GeF-qm-MQO"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fIb-gN-vf7"/>
+                                    <barButtonItem title="Done" id="5Jy-GL-OTh"/>
+                                </items>
+                            </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Sb-2E-XyS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="627"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq1-aU-XWs" customClass="FiltersScrollView" customModule="CamApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="736.5" width="414" height="125.5"/>
+                                <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="6Sb-2E-XyS" firstAttribute="height" secondItem="k4b-QS-Ksh" secondAttribute="height" multiplier="0.7" id="8u7-gw-a9r"/>
+                            <constraint firstItem="XQH-Yi-Pg6" firstAttribute="trailing" secondItem="lz4-8L-qcN" secondAttribute="trailing" id="QQh-mJ-OCH"/>
+                            <constraint firstItem="6Sb-2E-XyS" firstAttribute="width" secondItem="k4b-QS-Ksh" secondAttribute="width" id="Rkq-fc-T5w"/>
+                            <constraint firstItem="Zq1-aU-XWs" firstAttribute="leading" secondItem="lz4-8L-qcN" secondAttribute="leading" id="Sm9-qy-O3p"/>
+                            <constraint firstItem="6Sb-2E-XyS" firstAttribute="leading" secondItem="lz4-8L-qcN" secondAttribute="leading" id="TGv-8m-0mD"/>
+                            <constraint firstItem="6Sb-2E-XyS" firstAttribute="top" secondItem="XQH-Yi-Pg6" secondAttribute="bottom" id="VfL-JF-ztE"/>
+                            <constraint firstItem="XQH-Yi-Pg6" firstAttribute="leading" secondItem="lz4-8L-qcN" secondAttribute="leading" id="YHb-ql-ZF7"/>
+                            <constraint firstItem="XQH-Yi-Pg6" firstAttribute="top" secondItem="lz4-8L-qcN" secondAttribute="top" id="Z9O-JD-XTr"/>
+                            <constraint firstItem="Zq1-aU-XWs" firstAttribute="width" secondItem="k4b-QS-Ksh" secondAttribute="width" id="ggI-4k-FKR"/>
+                            <constraint firstItem="Zq1-aU-XWs" firstAttribute="bottom" secondItem="lz4-8L-qcN" secondAttribute="bottom" id="my2-ui-1L6"/>
+                            <constraint firstItem="Zq1-aU-XWs" firstAttribute="height" secondItem="k4b-QS-Ksh" secondAttribute="height" multiplier="0.14" id="pA4-6D-sSP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lz4-8L-qcN"/>
                     </view>
+                    <connections>
+                        <outlet property="filtersScrollView" destination="Zq1-aU-XWs" id="WX1-I6-pzg"/>
+                        <outlet property="photoImageView" destination="6Sb-2E-XyS" id="syX-42-80u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eim-5e-A3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="-658"/>
+            <point key="canvasLocation" x="1676.8115942028987" y="-658.25892857142856"/>
         </scene>
     </scenes>
 </document>
